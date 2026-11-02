@@ -35,10 +35,10 @@ The portfolio showcases real-world academic projects, cybersecurity homelab arch
 
 ## 3. Project Structure
 
-The laboratory submission directory (`bsl-lab1/`) adheres strictly to the official framework layout:
+The laboratory submission directory adheres strictly to the official framework layout:
 
 ```text
-bsl-lab1/
+CCC181-Lab1-BSL-Portfolio/
 ├── app.bzg                     # BSL server entry point & HTTP route handlers
 ├── package.json                # Project manifest and BSL dependencies ("http": "^1.0.0")
 ├── LICENSE                     # Dual-attributed MIT License (MSU-IIT framework & Theo Mata portfolio)
@@ -77,9 +77,9 @@ Before running the server, ensure you have the following installed on your machi
 
 ## 5. Installation & Environment Setup
 
-1. Open your PowerShell or Command Prompt terminal and navigate directly into the `bsl-lab1` directory:
+1. Open your PowerShell or Command Prompt terminal and navigate directly into the project directory:
    ```powershell
-   cd "e:\Learn\Landing Page - Copy\bsl-lab1"
+   cd CCC181-Lab1-BSL-Portfolio
    ```
 
 2. Confirm that the CLI tool is available in your PATH:
@@ -108,9 +108,12 @@ Run the BSL server using either of the following methods:
 
 ### Method A: Via Command Line (Recommended)
 ```powershell
+bzg run
+```
+*Alternatively, you can run the interpreter directly:*
+```powershell
 bonezegei app.bzg
 ```
-*(Or via `bzg run` in an environment where `bonezegei` is active in the session PATH)*
 
 ### Method B: Via Visual Studio Code Extension
 - Open `app.bzg` in VS Code.
@@ -126,8 +129,8 @@ Once the server is running, open any web browser and navigate to:
 http://localhost:8000
 ```
 
-- **Home Route (`/` or `/index.html`):** Loads Theo Mata's customized personal portfolio page (`public/index.html`). **[Verified: HTTP 200 OK, 82,159 bytes]**
-- **Unregistered Routes (e.g. `/not-found`):** Serves the custom styled `public/404.html` page. **[Verified: HTTP 200 OK, 2,553 bytes]**
+- **Home Route (`/` or `/index.html`):** Loads Theo Mata's customized personal portfolio page (`public/index.html`). **[Verified: HTTP 200 OK]**
+- **Unregistered Routes (e.g. `/not-found`):** Serves the custom styled `public/404.html` page. **[Verified: HTTP 200 OK]**
 - **Server Port:** `8000` (configured in `app.bzg` via `var server = http(8000);`).
 
 ---
@@ -136,7 +139,7 @@ http://localhost:8000
 
 | Issue / Error | Cause | Resolution |
 | :--- | :--- | :--- |
-| `Failed to load library: lib/http/http.dll` | Missing 64-bit runtime dependency (`libwinpthread-1.dll`) | Ensure `libwinpthread-1.dll` is present in the `bsl-lab1/` directory. |
+| `Failed to load library: lib/http/http.dll` | Missing 64-bit runtime dependency (`libwinpthread-1.dll`) | Ensure `libwinpthread-1.dll` is present in the project directory. |
 | `'bzg' or 'bonezegei' is not recognized` | BSL folder not loaded in current terminal session | Close and re-open PowerShell, or run `C:\Program Files\Bonezegei\bonezegei.exe app.bzg`. |
 | `Port 8000 already in use` | Another process is bound to port 8000 | Stop the conflicting process, or update the port number in `app.bzg` (e.g. `http(8080)`). |
 | `404 Not Found displayed` | Navigating to sub-routes not mapped in `app.bzg` | The server maps `/` to `public/index.html`. Return to `http://localhost:8000/`. |
@@ -145,23 +148,15 @@ http://localhost:8000
 
 ## 10. Execution Verification Screenshots
 
-Capture the two required screenshots and place them inside the `screenshots/` directory:
-
 ### Screenshot 1: Successful Terminal Execution
-- Open PowerShell in `bsl-lab1/` and run `bonezegei app.bzg` (or `bzg run`).
-- Capture a screenshot showing the running server in your terminal.
-- Save as:
-  ```text
-  bsl-lab1/screenshots/terminal_execution.png
-  ```
+Execution of `bzg run` / `bonezegei app.bzg` running the HTTP web server on port 8000 without errors:
+
+![Terminal Execution](screenshots/terminal_execution.png)
 
 ### Screenshot 2: Rendered Portfolio in Browser
-- Open your browser to `http://localhost:8000`.
-- Capture a screenshot showing the rendered portfolio and the browser address bar.
-- Save as:
-  ```text
-  bsl-lab1/screenshots/browser_rendered.png
-  ```
+The rendered personal portfolio landing page running in the browser at `http://localhost:8000`:
+
+![Browser Rendered Portfolio](screenshots/browser_rendered.png)
 
 ---
 
