@@ -1,0 +1,14 @@
+{
+  "name": "portfolio-bsl-http-server",
+  "version": "1.0.0",
+  "description": "BSL HTTP Web Server - CCC181 Laboratory 1 Personal Portfolio",
+  "main": "app.bzg",
+  "scripts": {
+    "start": "bonezegei app.bzg"
+  },
+  "dependencies": {
+    "http": "^1.0.0"
+  },
+  "license": "MIT"
+}
+

@@ -1,0 +1,19 @@
+include("lib/http.bzg");
+
+var server = http(8000);
+
+// ==========================================
+// HTTP EVENT HANDLERS
+// ==========================================
+server.get = function (path, data){
+   print("get loc:" + path);
+   if(path == "/" || path == "/index.html"){
+     server.sendFile("public/index.html");
+   }
+   else{
+     server.sendFile("public/404.html");
+   }
+};
+
+server.run();
+
